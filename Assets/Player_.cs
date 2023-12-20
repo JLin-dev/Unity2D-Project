@@ -1,0 +1,47 @@
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor;
+using UnityEngine;
+
+public class Player_ : MonoBehaviour
+{
+    public float speed; //移動速度
+    public float jumpforce; // 跳躍力度
+    Rigidbody2D myrig;//宣告自己的物件
+    Animator myanim;//宣告動畫
+
+    public bool isGround;//檢測有沒有在地面
+    public Transform checker;//檢測器的transform
+    float checkRadius = 0.2f;//檢測器範圍大小
+    public LayerMask GroundLayer;//地板的圖層
+
+    void Start()
+    {
+        myrig = GetComponent<Rigidbody2D>();
+        myanim = GetComponent<Animator>();
+    }
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.UpArrow) && isGround )
+        {
+
+            myrig.velocity = Vector2.up * jumpforce;
+
+        }
+    }
+    private void FixedUpdate() //適用物理計算
+    {
+        isGround = Physics2D.OverlapCircle(checker.position, checkRadius, GroundLayer);
+
+        float move = Input.GetAxis("Horizontal");//水平量 介於 1~-1之間 適用於鍵盤左右鍵及搖桿左右移動
+        float face = Input.GetAxisRaw("Horizontal");//水平量 只有1 0 -1, 沒有小數點
+        myrig.velocity = new Vector2(speed * move, myrig.velocity.y);
+        myanim.SetFloat("move",Mathf.Abs(move));
+
+        if (face != 0)//face不為0 只能是1or-1
+        {
+            transform.localScale = new Vector3(face,1,1);//決定角色面向
+        }
+    }
+}
