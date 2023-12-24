@@ -23,11 +23,11 @@ public class Player_ : MonoBehaviour
     }
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.UpArrow) && isGround )
+        if ((Input.GetKeyDown(KeyCode.UpArrow)) || (Input.GetKeyDown(KeyCode.Space)))
         {
-
-            myrig.velocity = Vector2.up * jumpforce;
-
+            if(isGround){
+                myrig.velocity = Vector2.up * jumpforce;
+            }
         }
     }
     private void FixedUpdate() //適用物理計算
