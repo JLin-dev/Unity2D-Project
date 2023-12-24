@@ -29,6 +29,11 @@ public class Player_ : MonoBehaviour
                 myrig.velocity = Vector2.up * jumpforce;
             }
         }
+
+        if ((Input.GetMouseButtonDown(0)) || (Input.GetKeyDown(KeyCode.Z)))
+        {
+            myanim.Play("player_attack");
+        }
     }
     private void FixedUpdate() //適用物理計算
     {
