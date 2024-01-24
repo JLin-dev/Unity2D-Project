@@ -49,4 +49,14 @@ public class Player_ : MonoBehaviour
             transform.localScale = new Vector3(face,1,1);//決定角色面向
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "hydro_slime")
+        {
+            myanim.Play("player_hurt");
+        }
+
+    }
+
 }

@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
     public Transform PosA, PosB;
     public float speed;
     Vector2 nextPos;
+
+    public float HP;
     
     void Start()
     {
@@ -29,5 +31,25 @@ public class Enemy : MonoBehaviour
 
         transform.position = Vector2.MoveTowards(transform.position, new Vector2(nextPos.x, transform.position.y), speed * Time.deltaTime);
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)//當觸發器進入自身範圍
+    {
+        if (collision.tag == "weapon")
+        {
+            float dmg = collision.GetComponent<weapon>().damage;
+            
+            gethurt(dmg);
+        }
+    }
+
+    public void gethurt(float damage)
+    {
+        HP -= damage;
+
+        if (HP <= 0)
+        {
+            Destroy(EnemyPack);
+        }
     }
 }
