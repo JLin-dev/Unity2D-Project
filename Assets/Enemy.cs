@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     Vector2 nextPos;
 
     public float HP;
+    public float damage;
     
     void Start()
     {

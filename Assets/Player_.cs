@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player_ : MonoBehaviour
 {
@@ -10,11 +11,15 @@ public class Player_ : MonoBehaviour
     public float jumpforce; // 跳躍力度
     Rigidbody2D myrig;//宣告自己的物件
     Animator myanim;//宣告動畫
+    public float HP;
+    public bool isHurt;
 
     public bool isGround;//檢測有沒有在地面
     public Transform checker;//檢測器的transform
     float checkRadius = 0.2f;//檢測器範圍大小
     public LayerMask GroundLayer;//地板的圖層
+
+    public GameObject weapon;
 
     void Start()
     {
@@ -29,10 +34,16 @@ public class Player_ : MonoBehaviour
                 myrig.velocity = Vector2.up * jumpforce;
             }
         }
-
-        if ((Input.GetMouseButtonDown(0)) || (Input.GetKeyDown(KeyCode.Z)))
+        if (!isHurt)
         {
-            myanim.Play("player_attack");
+            if ((Input.GetMouseButtonDown(0)) || (Input.GetKeyDown(KeyCode.Z)))
+            {
+                myanim.Play("player_attack");
+            }
+        }
+        if(transform.position.y < -10f)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
     private void FixedUpdate() //適用物理計算
@@ -52,11 +63,38 @@ public class Player_ : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "hydro_slime")
+        if (collision.gameObject.tag == "hydro_slime")
         {
             myanim.Play("player_hurt");
+            float dmg = collision.gameObject.GetComponent<Enemy>().damage;
+            PlayerHurt(dmg);
         }
 
+    }
+
+    public void PlayerHurt(float damage)
+    {
+        HP -= damage;
+
+        if( HP <= 0 )
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
+
+    public void 受傷圖層()
+    {
+        isHurt = true;
+        myanim.SetBool("isHurt", true);
+        this.gameObject.layer = 11;
+        weapon.gameObject.layer = 9;
+    }
+    public void 恢復原樣()
+    {
+        isHurt = false;
+        myanim.SetBool("isHurt", false);
+        this.gameObject.layer = 9;
+        weapon.gameObject.layer = 9;
     }
 
 }
