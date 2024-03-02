@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player_ : MonoBehaviour
 {
@@ -21,8 +22,12 @@ public class Player_ : MonoBehaviour
 
     public GameObject weapon;
 
+    public Sprite[] Hp_sprite;
+    public Image UI_hp;
+
     void Start()
     {
+        CheckHpUI();
         myrig = GetComponent<Rigidbody2D>();
         myanim = GetComponent<Animator>();
     }
@@ -43,7 +48,7 @@ public class Player_ : MonoBehaviour
         }
         if(transform.position.y < -10f)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            HP -= 100;
         }
     }
     private void FixedUpdate() //適用物理計算
@@ -75,11 +80,16 @@ public class Player_ : MonoBehaviour
     public void PlayerHurt(float damage)
     {
         HP -= damage;
-
-        if( HP <= 0 )
+        CheckHpUI();
+        if ( HP <= 0 )
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+    }
+
+    public void CheckHpUI()
+    {
+        UI_hp.sprite = Hp_sprite[(int)HP];
     }
 
     public void 受傷圖層()
