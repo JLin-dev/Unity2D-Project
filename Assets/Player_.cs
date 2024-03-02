@@ -48,7 +48,7 @@ public class Player_ : MonoBehaviour
         }
         if(transform.position.y < -10f)
         {
-            HP -= 100;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
     private void FixedUpdate() //適用物理計算
