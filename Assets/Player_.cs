@@ -35,7 +35,7 @@ public class Player_ : MonoBehaviour
     {
         if ((Input.GetKeyDown(KeyCode.UpArrow)) || (Input.GetKeyDown(KeyCode.Space)))
         {
-            if(isGround){
+            if(isGround && (HP > 0)){
                 myrig.velocity = Vector2.up * jumpforce;
             }
         }
@@ -43,32 +43,39 @@ public class Player_ : MonoBehaviour
         {
             if ((Input.GetMouseButtonDown(0)) || (Input.GetKeyDown(KeyCode.Z)))
             {
-                myanim.Play("player_attack");
+                if (HP > 0)
+                {
+                    myanim.Play("player_attack");
+                }
             }
         }
-        if(transform.position.y < -10f)
+        if (transform.position.y < -10f)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            FindObjectOfType<GM>().GameOverPanel_Show();
         }
     }
     private void FixedUpdate() //適用物理計算
     {
+
         isGround = Physics2D.OverlapCircle(checker.position, checkRadius, GroundLayer);
 
-        float move = Input.GetAxis("Horizontal");//水平量 介於 1~-1之間 適用於鍵盤左右鍵及搖桿左右移動
-        float face = Input.GetAxisRaw("Horizontal");//水平量 只有1 0 -1, 沒有小數點
-        myrig.velocity = new Vector2(speed * move, myrig.velocity.y);
-        myanim.SetFloat("move",Mathf.Abs(move));
-
-        if (face != 0)//face不為0 只能是1or-1
+        if (HP > 0)
         {
-            transform.localScale = new Vector3(face,1,1);//決定角色面向
+            float move = Input.GetAxis("Horizontal");//水平量 介於 1~-1之間 適用於鍵盤左右鍵及搖桿左右移動
+            float face = Input.GetAxisRaw("Horizontal");//水平量 只有1 0 -1, 沒有小數點
+            myrig.velocity = new Vector2(speed * move, myrig.velocity.y);
+            myanim.SetFloat("move", Mathf.Abs(move));
+
+            if (face != 0)//face不為0 只能是1or-1
+            {
+                transform.localScale = new Vector3(face, 1, 1);//決定角色面向
+            }
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "hydro_slime")
+        if ((collision.gameObject.tag == "hydro_slime") && (HP > 0))
         {
             myanim.Play("player_hurt");
             float dmg = collision.gameObject.GetComponent<Enemy>().damage;
@@ -81,9 +88,9 @@ public class Player_ : MonoBehaviour
     {
         HP -= damage;
         CheckHpUI();
-        if ( HP <= 0 )
+        if ( HP <= 0 ) 
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            FindObjectOfType<GM>().GameOverPanel_Show();
         }
     }
 
