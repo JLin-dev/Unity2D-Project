@@ -1,3 +1,9 @@
 [show]
+Press "Space" to continue.[w]
+Press "A" or "D" to move.[w]
+Press "left mouse button" to attack.[w]
+Enjoy the game :)[w]
+[hide]
+[load_scene,SampleScene2]
 
 
