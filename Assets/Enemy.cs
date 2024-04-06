@@ -50,6 +50,7 @@ public class Enemy : MonoBehaviour
 
         if (HP <= 0)
         {
+            FindObjectOfType<Audio_Set>().PlaySfx(2);
             Destroy(EnemyPack);
         }
     }

@@ -39,19 +39,32 @@ public class Player_ : MonoBehaviour
                 myrig.velocity = Vector2.up * jumpforce;
             }
         }
+        //=====================================
         if (!isHurt)
         {
             if ((Input.GetMouseButtonDown(0)) || (Input.GetKeyDown(KeyCode.Z)))
             {
                 if (HP > 0)
                 {
+                    FindObjectOfType<Audio_Set>().PlaySfx(0);
                     myanim.Play("player_attack");
                 }
             }
         }
+        //=====================================
         if (transform.position.y < -10f)
         {
+            HP -= HP;
             FindObjectOfType<GM>().GameOverPanel_Show();
+        }
+        //=====================================
+        if (HP < 5)
+        {
+            if(Input.GetKeyDown(KeyCode.E))
+            {
+                HP += 1;
+                UI_hp.sprite = Hp_sprite[(int)HP];
+            }
         }
     }
     private void FixedUpdate() //適用物理計算
@@ -77,6 +90,7 @@ public class Player_ : MonoBehaviour
     {
         if ((collision.gameObject.tag == "hydro_slime") && (HP > 0))
         {
+            FindObjectOfType<Audio_Set>().PlaySfx(1);
             myanim.Play("player_hurt");
             float dmg = collision.gameObject.GetComponent<Enemy>().damage;
             PlayerHurt(dmg);

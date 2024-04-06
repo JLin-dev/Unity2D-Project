@@ -8,6 +8,7 @@ public class GM : MonoBehaviour
     public GameObject gameoverPanel;
     public void GameOverPanel_Show()
     {
+        FindObjectOfType<Audio_Set>().PlaySfx(3);
         gameoverPanel.SetActive(true);
     }
     public void RestartScene()
