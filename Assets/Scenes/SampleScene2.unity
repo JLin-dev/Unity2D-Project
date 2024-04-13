@@ -4641,6 +4641,10 @@ MonoBehaviour:
   speed: 1.5
   HP: 1
   damage: 1
+  spawnObjects:
+  - {fileID: 1927819105168050033, guid: 62473fd1b6e156248adbcd862cc0d986, type: 3}
+  - {fileID: 1927819105168050033, guid: 62473fd1b6e156248adbcd862cc0d986, type: 3}
+  - {fileID: 1927819105168050033, guid: 62473fd1b6e156248adbcd862cc0d986, type: 3}
 --- !u!58 &312964258
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -12614,6 +12618,10 @@ MonoBehaviour:
   speed: 1.5
   HP: 1
   damage: 1
+  spawnObjects:
+  - {fileID: 1927819105168050033, guid: 62473fd1b6e156248adbcd862cc0d986, type: 3}
+  - {fileID: 1927819105168050033, guid: 62473fd1b6e156248adbcd862cc0d986, type: 3}
+  - {fileID: 1927819105168050033, guid: 62473fd1b6e156248adbcd862cc0d986, type: 3}
 --- !u!58 &918467796
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -19112,6 +19120,10 @@ MonoBehaviour:
   speed: 1.5
   HP: 1
   damage: 1
+  spawnObjects:
+  - {fileID: 1927819105168050033, guid: 62473fd1b6e156248adbcd862cc0d986, type: 3}
+  - {fileID: 1927819105168050033, guid: 62473fd1b6e156248adbcd862cc0d986, type: 3}
+  - {fileID: 1927819105168050033, guid: 62473fd1b6e156248adbcd862cc0d986, type: 3}
 --- !u!1 &1423878212
 GameObject:
   m_ObjectHideFlags: 0
@@ -28627,6 +28639,10 @@ MonoBehaviour:
   speed: 1.5
   HP: 1
   damage: 1
+  spawnObjects:
+  - {fileID: 1927819105168050033, guid: 62473fd1b6e156248adbcd862cc0d986, type: 3}
+  - {fileID: 1927819105168050033, guid: 62473fd1b6e156248adbcd862cc0d986, type: 3}
+  - {fileID: 1927819105168050033, guid: 62473fd1b6e156248adbcd862cc0d986, type: 3}
 --- !u!58 &2054876345
 CircleCollider2D:
   m_ObjectHideFlags: 0

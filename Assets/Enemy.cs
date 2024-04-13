@@ -11,7 +11,8 @@ public class Enemy : MonoBehaviour
 
     public float HP;
     public float damage;
-    
+    public GameObject[] spawnObjects;
+
     void Start()
     {
         float number = Random.Range(0, 2);
@@ -52,6 +53,12 @@ public class Enemy : MonoBehaviour
         {
             FindObjectOfType<Audio_Set>().PlaySfx(2);
             Destroy(EnemyPack);
+            Vector2 pos = transform.position;
+            int randomIndex = Random.Range(0, spawnObjects.Length);
+            if (randomIndex != 1 && randomIndex != 2) 
+            {
+                Instantiate(spawnObjects[randomIndex], pos, Quaternion.identity);
+            }
         }
     }
 }
