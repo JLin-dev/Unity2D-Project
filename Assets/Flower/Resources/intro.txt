@@ -1,9 +1,11 @@
 [show]
+[audio,bgm,shopping_trolley_type_beat (1),true,0,audioTransit_0.5_1000]
+Hello traveler.[w]
+It is your frist time to explore this world.[w]
+There are some tips for you to strategy and survive in this world.[w]
 Press "Space" to continue.[w]
 Press "A" or "D" to move.[w]
 Press "left mouse button" to attack.[w]
 Enjoy the game :)[w]
 [hide]
 [load_scene,SampleScene2]
-
-
