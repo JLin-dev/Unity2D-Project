@@ -19,7 +19,7 @@ public class intro : MonoBehaviour
         fs.ReadTextFromResource("intro"); //Åª¨ú³õ´ºintro//
         fs.RegisterCommand("load_scene", (List<string> _params)=>{
             SceneManager.LoadScene(_params[0]);
-
+        fs.ReadTextFromResource("SampleScene2");
 
         });
 
