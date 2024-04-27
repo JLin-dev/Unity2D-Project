@@ -5,7 +5,7 @@ Village Head: You're in Minghu Village, a declining village. It's been a long ti
 
 Traveler: What happened?[w]
 
-Village Head: This used to be a peaceful little village, known for its slime liquor. But one day, strange toxic slimes appeared. They not only attacked people but also infected the regular slimes.[w]
+Village Head: This used to be a peaceful little village, known for its slime liquor. But one day, strange toxic slimes appeared. They not only attacked people but also infected the regular slimes[w].
 
 Village Head: The ingredients for slime liquor started running short, and some even fell ill after drinking it. The villagers gradually left, leaving only me, this stubborn old man.[w]
 
