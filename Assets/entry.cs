@@ -10,7 +10,7 @@ public class entry : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3);
         }
     }
 }
