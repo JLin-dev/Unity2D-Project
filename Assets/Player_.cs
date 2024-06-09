@@ -57,15 +57,6 @@ public class Player_ : MonoBehaviour
             HP -= HP;
             FindObjectOfType<GM>().GameOverPanel_Show();
         }
-        //=====================================
-        if (HP < 5)
-        {
-            if(Input.GetKeyDown(KeyCode.E))
-            {
-                HP += 1;
-                UI_hp.sprite = Hp_sprite[(int)HP];
-            }
-        }
     }
     private void FixedUpdate() //適用物理計算
     {
@@ -96,6 +87,16 @@ public class Player_ : MonoBehaviour
             PlayerHurt(dmg);
         }
 
+        if ((collision.gameObject.tag == "item") && (HP > 0))
+        {
+            if (HP < 5)
+            {
+                HP += 1;
+                UI_hp.sprite = Hp_sprite[(int)HP];
+                FindObjectOfType<Audio_Set>().PlaySfx(4);
+                Destroy(collision.gameObject);
+            }
+        }
     }
 
     public void PlayerHurt(float damage)
@@ -129,4 +130,5 @@ public class Player_ : MonoBehaviour
     }
 
 }
+
 
