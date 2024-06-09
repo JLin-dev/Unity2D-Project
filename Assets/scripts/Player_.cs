@@ -97,6 +97,15 @@ public class Player_ : MonoBehaviour
                 Destroy(collision.gameObject);
             }
         }
+
+        if ((collision.gameObject.tag == "gear") && (HP > 0))
+        {
+            if (HP < 5)
+            {
+                HP += 1;
+                UI_hp.sprite = Hp_sprite[(int)HP];
+            }
+        }
     }
 
     public void PlayerHurt(float damage)
