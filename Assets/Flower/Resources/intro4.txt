@@ -1,5 +1,4 @@
 [show]
-<Force Landing in the Village> [w]
 Traveler: Excuse me, where is this.[w]
 
 Village Head: You're in Minghu Village, a declining village. It's been a long time since we've had any young folks here, sigh...[w]

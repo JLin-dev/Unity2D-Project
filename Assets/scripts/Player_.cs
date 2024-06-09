@@ -115,6 +115,7 @@ public class Player_ : MonoBehaviour
         if ( HP <= 0 ) 
         {
             FindObjectOfType<GM>().GameOverPanel_Show();
+            FindObjectOfType<GM_factory>().GameOverPanel_Show();
         }
     }
 
