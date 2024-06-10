@@ -1,3 +1,13 @@
 [show]
-byw [w]
+[image,bg,image,0,0,0,spFadeIn_1000]
+=======Back to the Village=======[w]
+Player: Mayor, I've found all my items. Also, I seem to know the origin of the toxic slimes now.[w]
+Mayor: It seems you've figured it out. Initially,
+everyone used some dubious medicine to increase the number of slimes, resulting in all of them getting poisoned.[w]
+Mayor: But that's not something you should worry about.
+Aren't you on a journey? You'll encounter many things like this along the way. 
+I hope when the time comes for you to settle down, you won't end up like them.[w]
+[remove,bg,spFadeOut_1000]
+[image,thanks,artworks-000466570722-f4jgr0-t500x500,0,0,0,spFadeIn_2000]
+[remove,thanks,spFadeOut_2000]
 [hide]
