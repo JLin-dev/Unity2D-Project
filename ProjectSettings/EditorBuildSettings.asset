@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/factory.unity
     guid: 154ec43751c51154f9482ee466ae71a9
+  - enabled: 1
+    path: Assets/Scenes/outtro.unity
+    guid: 9dba153a25ca7ac42ad6ab49239eb25c
   m_configObjects: {}

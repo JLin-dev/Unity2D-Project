@@ -100,11 +100,7 @@ public class Player_ : MonoBehaviour
 
         if ((collision.gameObject.tag == "gear") && (HP > 0))
         {
-            if (HP < 5)
-            {
-                HP += 1;
-                UI_hp.sprite = Hp_sprite[(int)HP];
-            }
+            SceneManager.LoadScene("outtro");
         }
     }
 
@@ -118,7 +114,8 @@ public class Player_ : MonoBehaviour
             FindObjectOfType<GM_factory>().GameOverPanel_Show();
         }
     }
-
+   
+    
     public void CheckHpUI()
     {
         UI_hp.sprite = Hp_sprite[(int)HP];
